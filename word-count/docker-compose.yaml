@@ -1,0 +1,10 @@
+services:
+  word-count:
+    build: .
+    container_name: word-count
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/word-count/src
+      - ./output:/word-count/output

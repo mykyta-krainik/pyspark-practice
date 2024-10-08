@@ -1,0 +1,10 @@
+services:
+  inverted-index:
+    build: .
+    container_name: inverted-index
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/inverted-index/src
+      - ./output:/inverted-index/output
