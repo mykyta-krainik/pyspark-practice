@@ -12,7 +12,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=config)
 
     input_path = "./input"
-    output_path = "./output/output-%32x" % getrandbits(32)
+    output_path = "./output/output-%8x" % getrandbits(32)
 
     files_rdd = sc.wholeTextFiles(input_path)
 
