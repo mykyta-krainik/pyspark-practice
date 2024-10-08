@@ -41,6 +41,6 @@ if __name__ == "__main__":
         .mapValues(list)
     )
 
-    inverted_index.saveAsTextFile(output_path)
+    inverted_index.coalesce(1).saveAsTextFile(output_path)
 
     sc.stop()
