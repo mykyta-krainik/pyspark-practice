@@ -18,9 +18,9 @@ if __name__ == "__main__":
 
     word_counts_rdd = (files_rdd
         .flatMap(
-            lambda file: [(word, (1, file[0])) for word in normalize_words(file[1])]
+            lambda file: [((word, file[0]), 1) for word in normalize_words(file[1])]
         ).reduceByKey(
-            lambda a, b: (a[0] + b[0], a[1])
+            lambda a, b: a + b
         ))
 
     word_counts_rdd.saveAsTextFile(output_path)
